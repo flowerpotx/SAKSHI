@@ -299,17 +299,23 @@ All information and links are provided by the respective client/third party.
   </div>
 </body>
   <script>
+  const timerElem = document.getElementById("redirect-timer");
   let seconds = 5;
   const redirectUrl = "https://t.me/+zz_LuzUKEFAzOGY1";
 
   const countdown = setInterval(() => {
-    seconds--;
+    if (timerElem) {
+      timerElem.textContent = `Redirecting in ${seconds} seconds...`;
+    }
 
     if (seconds <= 0) {
       clearInterval(countdown);
       window.location.href = redirectUrl;
+      return;
     }
+
+    seconds--;
   }, 1000);
 </script>
-
+  
 </html>
