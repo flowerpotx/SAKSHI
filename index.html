@@ -298,20 +298,18 @@ All information and links are provided by the respective client/third party.
       <div class="redirecting" id="redirect-timer">Redirecting in 05 seconds...</div>
   </div>
 </body>
-<script>
-  const timerElem = document.getElementById('redirect-timer');
+  <script>
   let seconds = 5;
+  const redirectUrl = "https://t.me/+zz_LuzUKEFAzOGY1";
 
-  setInterval(() => {
-    if (seconds === 1) {
-      seconds = 5;
-    } else {
-      seconds--;
-    }
+  const countdown = setInterval(() => {
+    seconds--;
 
-    if (timerElem) {
-      timerElem.textContent = `Redirecting in ${seconds} seconds...`;
+    if (seconds <= 0) {
+      clearInterval(countdown);
+      window.location.href = redirectUrl;
     }
   }, 1000);
 </script>
+
 </html>
